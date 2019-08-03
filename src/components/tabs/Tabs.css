@@ -1,0 +1,32 @@
+.tabs-wrapper {
+  margin: 40px;
+  max-width: 1000px;
+}
+
+.tab-button-wrapper {
+  display: flex;
+}
+
+.tab-button {
+  background-color: #ccc;
+  padding: 5px 50px;
+  border-radius: 10px 10px 0 0;
+  border: 1px solid;
+  margin-bottom: -1px;
+  cursor: pointer;
+}
+
+.tab-button.active {
+  background-color: #fff;
+  border-bottom-color: #fff;
+}
+
+.tabs-content {
+  border: 1px solid;
+  padding: 20px;
+}
+
+.tab-item {
+  border: 1px solid;
+  padding: 20px;
+}

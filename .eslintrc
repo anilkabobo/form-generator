@@ -1,0 +1,30 @@
+{
+  "parser": "babel-eslint",
+  "plugins": ["import"],
+  "extends": ["react-app"],
+  "rules": {
+   "arrow-parens": 0,
+   "react/jsx-filename-extension": 0
+  },
+  "globals": {
+    "after": false,
+    "afterEach": false,
+    "before": false,
+    "beforeEach": false,
+    "console": false,
+    "describe": false,
+    "it": false,
+    "module": false,
+    "process": false,
+    "require": false,
+    "window": false,
+    "faker": false
+  },
+  "settings": {
+    "import/ignore": ["node_modules", "\\.json$", "\\.svg"],
+    "import/parser": "babel-eslint",
+    "import/resolve": {
+      "extensions": [".js", ".jsx", ".json"]
+    }
+  }
+}

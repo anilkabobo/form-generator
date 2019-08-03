@@ -1,0 +1,82 @@
+legend {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+input {
+  border: 1px solid #000;
+}
+
+button {
+  padding: 10px 50px;
+  display: block;
+  margin: 20px 20px 20px 0;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.field-container {
+  width: 100%;
+  display: flex;
+  margin-bottom: 10px;
+  align-items: flex-end;
+  padding: 5px;
+}
+
+.label {
+  width: 30%;
+}
+
+.input-wrapper {
+  flex-grow: 5;
+}
+
+.text-input {
+  height: 20px;
+  width: 200px;
+}
+
+.textarea-input {
+  width: 200px;
+  border: 1px solid #000;
+}
+
+.number-input {
+  height: 20px;
+  width: 200px;
+}
+
+.radio-input {
+  height: 20px;
+  width: 200px;
+  display: flex;
+  margin-top: 5px;
+}
+
+.radio-input input {
+  margin-right: 5px;
+}
+
+.date-input {
+  height: 20px;
+  width: 200px;
+}
+
+.check-input {
+  height: 20px;
+  width: 200px;
+  display: flex;
+  margin-top: 5px;
+}
+
+.check-input input {
+  margin-right: 5px;
+}
+
+.error {
+  color: #F00
+}
+
+.success {
+  color: #0f0
+}
