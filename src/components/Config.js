@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { updateFormConfigs } from '../actions/form';
 import { connect } from 'react-redux';
 
@@ -14,16 +15,16 @@ class Config extends Component {
 
   updateFormConfigs =() => {
     const { updateFormConfigs } = this.props;
-    let newConfig = {}
+    let newConfig = {};
 
     try {
       newConfig = JSON.parse(this.configInput.value);
-      this.setState({hasError: false, success: true})
+      this.setState({hasError: false, success: true});
     } catch (e) {
-      this.setState({hasError: true, success: false})
+      this.setState({hasError: true, success: false});
     }
 
-    updateFormConfigs(newConfig)
+    updateFormConfigs(newConfig);
   }
 
   handleChange = (event) => {
@@ -46,12 +47,17 @@ class Config extends Component {
         {hasError && <p className="error">Config is invalid</p>}
         {success && <p className="success">Successful update!</p>}
       </div>
-    )
+    );
   }
 }
 
-const mapStateToProps = state => ({ config: state.form.formConfig })
+const mapStateToProps = state => ({ config: state.form.formConfig });
 
-const mapDispatchToProps = dispatch => ({ updateFormConfigs: (config) => dispatch(updateFormConfigs(config)) })
+const mapDispatchToProps = dispatch => ({ updateFormConfigs: (config) => dispatch(updateFormConfigs(config)) });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Config)
+Config.propTypes = {
+  updateFormConfigs: PropTypes.func,
+  config: PropTypes.object
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Config);

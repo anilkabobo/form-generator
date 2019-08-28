@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const DateField = (props) => {
   return (
@@ -11,7 +12,13 @@ const DateField = (props) => {
         onChange={(event) => props.onChange(event.target.value)}
       />
     </label>
-  )
-}
+  );
+};
+
+DateField.propTypes ={
+  label: PropTypes.string,
+  value: PropTypes.string,
+  onChange: PropTypes.func
+};
 
 export default DateField;

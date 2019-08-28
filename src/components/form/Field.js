@@ -1,26 +1,27 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { updateFieldValue } from '../../actions/form';
-import { TextField, CheckboxField, RadioField, TextareaField, NumberField, DateField } from './fields'
+import { TextField, CheckboxField, RadioField, TextareaField, NumberField, DateField } from './fields';
 import { connect } from 'react-redux';
 
 class Field extends Component {
 
   renderField(item) {
     switch (item.type) {
-      case 'text':
-        return TextField
-      case 'checkbox':
-        return CheckboxField
-      case 'radio':
-        return RadioField
-      case 'textarea':
-        return TextareaField
-      case 'number':
-        return NumberField
-      case 'date':
-        return DateField
-      default:
-        return null
+    case 'text':
+      return TextField;
+    case 'checkbox':
+      return CheckboxField;
+    case 'radio':
+      return RadioField;
+    case 'textarea':
+      return TextareaField;
+    case 'number':
+      return NumberField;
+    case 'date':
+      return DateField;
+    default:
+      return null;
     }
   }
 
@@ -43,12 +44,18 @@ class Field extends Component {
           />
         </div>
       </div>
-    )
+    );
   }
 }
 
-const mapStateToProps = state => ({ values: state.form.values })
+const mapStateToProps = state => ({ values: state.form.values });
 
-const mapDispatchToProps = dispatch => ({ updateFieldValue: (name, value) => dispatch(updateFieldValue(name, value)) })
+const mapDispatchToProps = dispatch => ({ updateFieldValue: (name, value) => dispatch(updateFieldValue(name, value)) });
+
+Field.propTypes = {
+  item: PropTypes.object,
+  updateFieldValue: PropTypes.func,
+  values: PropTypes.array
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Field);

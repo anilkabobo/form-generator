@@ -53,7 +53,7 @@ export default {
           value: '3'
         }
       ]
-    },
+    }
   ],
   buttons: [
     {
@@ -65,4 +65,4 @@ export default {
       action: 'cancel'
     }
   ]
-}
+};

@@ -8,13 +8,13 @@ export default class Tabs extends Component {
   }
 
   static propTypes = {
-    tabs: RPT.arrayOf(RPT.node),
+    children: RPT.arrayOf(RPT.node)
   }
 
   setActive = (index) => {
     this.setState({
       activeTab: index
-    })
+    });
   }
 
   renderTabsButtons() {
@@ -30,8 +30,8 @@ export default class Tabs extends Component {
         >
           {name}
         </div>
-      )
-    })
+      );
+    });
   }
 
   render() {

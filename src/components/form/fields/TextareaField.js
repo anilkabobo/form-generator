@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const TextareaField = (props) => {
   const { item: {rows = 4, placeholder, label }, value } = props;
@@ -14,7 +15,13 @@ const TextareaField = (props) => {
         onChange={(event) => props.onChange(event.target.value)}
       />
     </label>
-  )
-}
+  );
+};
+
+TextareaField.propTypes = {
+  item: PropTypes.object,
+  onChange: PropTypes.func,
+  value: PropTypes.string
+};
 
 export default TextareaField;

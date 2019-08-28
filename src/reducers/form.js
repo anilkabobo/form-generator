@@ -13,13 +13,13 @@ const initialState = new InitialState();
 export default function form(state = initialState, action) {
   if (!(state instanceof InitialState)) return initialState.mergeDeep(state);
   switch (action.type) {
-    case UPDATE_FORM_CONFIGS:
-      return state.set('formConfig', action.payload)
-    case UPDATE_FIELD_VALUE:
-      return state.setIn(['values', action.payload.name], action.payload.value)
-    case RESET_FORM:
-      return state.set('values', new Map(getDefaultValues(state.get('formConfig'))))
-    default:
-      return state
-    }
+  case UPDATE_FORM_CONFIGS:
+    return state.set('formConfig', action.payload);
+  case UPDATE_FIELD_VALUE:
+    return state.setIn(['values', action.payload.name], action.payload.value);
+  case RESET_FORM:
+    return state.set('values', new Map(getDefaultValues(state.get('formConfig'))));
+  default:
+    return state;
+  }
 }

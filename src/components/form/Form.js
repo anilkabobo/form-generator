@@ -1,16 +1,13 @@
-import React, { Component } from 'react'
-import Field from './Field'
-import './Form.css'
-import { resetForm, submitForm } from '../../actions/form'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import Field from './Field';
+import './Form.css';
+import { resetForm, submitForm } from '../../actions/form';
 import { connect } from 'react-redux';
 
-const availableActions = ['submit', 'cancel']
+const availableActions = ['submit', 'cancel'];
 
 class Form extends Component {
-
-  static defaultProps = {
-    config: {}
-  }
 
   renderButton(button) {
     const {formValues} = this.props;
@@ -18,10 +15,10 @@ class Form extends Component {
 
     if (availableActions.includes(button.action)) {
       return (
-      <button onClick={() => action(formValues.toJS())} key={button.name}>
-        {button.name}
-      </button>
-    )}
+        <button onClick={() => action(formValues.toJS())} key={button.name}>
+          {button.name}
+        </button>
+      );}
   }
 
   render() {
@@ -41,19 +38,29 @@ class Form extends Component {
 
         {buttons && buttons.length && buttons.map((button) => this.renderButton(button))}
       </div>
-    )
+    );
   }
 }
 
 const mapStateToProps = (state) => ({
   config: state.form.formConfig,
   formValues: state.form.values
-})
+});
 
-const mapDispatchToProps = (dispatch, props) => ({ 
+const mapDispatchToProps = (dispatch) => ({ 
   cancel: () => dispatch(resetForm()),
   submit: (values) => dispatch(submitForm(values))
-})
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(Form)
+Form.propTypes = {
+  config: PropTypes.object,
+  formValues: PropTypes.object,
+  name: PropTypes.string
+};
+
+Form.defaultProps = {
+  config: {}
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Form);
 

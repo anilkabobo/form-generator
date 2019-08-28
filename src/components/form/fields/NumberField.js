@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const NumberField = (props) => {
   const {item: {min = 0, max=100, step=1, label}, value} = props;
@@ -15,7 +16,13 @@ const NumberField = (props) => {
         onChange={(event) => props.onChange(event.target.value)}
       />
     </label>
-  )
-}
+  );
+};
+
+NumberField.propTypes = {
+  item: PropTypes.object,
+  onChange: PropTypes.func,
+  value: PropTypes.string
+};
 
 export default NumberField;

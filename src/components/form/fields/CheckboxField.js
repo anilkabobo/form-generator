@@ -1,17 +1,17 @@
-import React from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const CheckboxField = (props) => {
   const { item , value = {}, onChange} = props;
 
   const onChangeHandler = (checked, itemValue) => {
-    debugger
     const oldValue = value[itemValue];
     value[itemValue] = checked;
     
     if (oldValue !== value[itemValue]) {
-      onChange(value)
+      onChange(value);
     }
-  }
+  };
 
   if (!item.options) {
     return (<p className="error">Input requires options</p>);
@@ -34,7 +34,14 @@ const CheckboxField = (props) => {
         ))
       }
     </div>
-  )
-}
+  );
+};
+
+CheckboxField.propTypes ={
+  label: PropTypes.string,
+  value: PropTypes.string,
+  onChange: PropTypes.func,
+  item: PropTypes.object
+};
 
 export default CheckboxField;
